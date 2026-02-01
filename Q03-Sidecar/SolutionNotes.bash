@@ -3,7 +3,7 @@ cat <<'EOF' | kubectl apply -f -
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wordpress
+  name: synergy-leverager
 spec:
   template:
     spec:
@@ -11,7 +11,7 @@ spec:
       - name: log
         emptyDir: {}
       containers:
-      - name: wordpress
+      - name: synergy-leverager
         volumeMounts:
         - name: log
           mountPath: /var/log

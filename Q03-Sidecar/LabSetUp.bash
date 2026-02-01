@@ -8,23 +8,23 @@ cat <<EOF | kubectl apply -f -
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wordpress
+  name: synergy-leverager
   labels:
-    app: wordpress
+    app: synergy-leverager
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: wordpress
+      app: synergy-leverager
   template:
     metadata:
       labels:
-        app: wordpress
+        app: synergy-leverager
     spec:
       containers:
-      - name: wordpress
+      - name: synergy-leverager
         image: wordpress:php8.2-apache
-        command: ["/bin/sh", "-c", "while true; do echo 'WordPress is running...' >> /var/log/wordpress.log; sleep 5; done"]
+        command: ["/bin/sh", "-c", "while true; do echo 'WordPress is running...' >> /var/log/synergy-leverager.log; sleep 5; done"]
         ports:
         - containerPort: 80
 EOF
@@ -34,10 +34,10 @@ cat <<EOF | kubectl apply -f -
 apiVersion: v1
 kind: Service
 metadata:
-  name: wordpress
+  name: synergy-leverager
 spec:
   selector:
-    app: wordpress
+    app: synergy-leverager
   ports:
   - port: 80
     targetPort: 80
