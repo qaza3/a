@@ -8,5 +8,6 @@
 # 3. Generate a Helm template from the Argo CD chart version 7.7.3 for the argocd namespace
 # 4. Ensure that CRDs are not installed by configuring the chart accordingly
 # 5. Save the generated YAML manifest to /root/argo-helm.yaml
+# 6. Install Argo using helm
 
 # Video link - https://youtu.be/e0YGRSjb8CU
