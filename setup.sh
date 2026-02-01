@@ -1,24 +1,25 @@
 #!/bin/sh
-
+#
+# Run . ./a/setup.sh to create the aliases
+#
 #git clone https://github.com/qaza3/a.git
 
+# Ensure scripts are executable
 find . -name '*.bash' -exec chmod 700 {} \;
 
 for i in {01..17}; do
-    # Locate the directory; head -n 1 ensures we only get one result if there's a duplicate
-    target=$(find ./a/ -maxdepth 1 -type d -name "Q$i *" | head -n 1)
+    # 1. Removed space from "Q$i *" to match "Q$i-Name"
+    # 2. Quoted $target to handle potential spaces in folder names
+    target=$(find ./a/ -maxdepth 1 -type d -name "Q$i*" | head -n 1)
     
     if [ -n "$target" ]; then
-        # -s for symbolic, -f to overwrite if it already exists, -n to treat link as a file
-        ln -sfn "$target" "$i"
-        echo "Linked $i -> $target"
+        # Map aliases directly to the discovered path
+        alias q$i="clear; cat \"$target/Questions.bash\""
+        alias s$i="\"$target/LabSetUp.bash\""
+        alias sol$i="\"$target/SolutionNotes.bash\""
+        
+        echo "Aliases created for $target"
     else
         echo "Warning: Q$i not found in ./a/"
     fi
-done
-
-for i in {01..17}; do
-    alias q$i="clear; cat ./$i/Questions.bash"
-    alias s$i="./$i/LabSetUp.bash"
-    alias sol$i="./$i/SolutionNotes.bash"
 done
