@@ -1,6 +1,6 @@
 #!/bin/sh
 
-git clone https://github.com/qaza3/a.git
+#git clone https://github.com/qaza3/a.git
 
 find . -name '*.bash' -exec chmod 700 {} \;
 
