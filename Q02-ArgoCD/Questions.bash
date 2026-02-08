@@ -10,4 +10,3 @@
 # 5. Save the generated YAML manifest to /root/argo-helm.yaml
 # 6. Install Argo using helm
 
-# Video link - https://youtu.be/e0YGRSjb8CU

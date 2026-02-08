@@ -7,4 +7,3 @@
 "/bin/sh -c tail -n+1 -f /var/log/synergy-leverager.log"
 # Use a volume mounted at /var/log to make the log file synergy-leverager.log available to the co-located container
 
-#Video link - https://youtu.be/3xraEGGQJDY
