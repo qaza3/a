@@ -6,4 +6,3 @@
 # 2. Create a new Service named nodeport-service exposing the container port 80, protocol TCP, Node Port 30080
 # 3. Configure the new Service to also expose the individual pods using NodePort
 
-

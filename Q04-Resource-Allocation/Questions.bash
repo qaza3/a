@@ -10,4 +10,3 @@
 # Ensure both the init containers and the main containers use exactly the same resource requests and limits
 # After making the changes scale the deployment back to 3 replicas
 
-

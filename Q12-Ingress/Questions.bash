@@ -11,4 +11,3 @@ curl NODEIP:NODEPORT/echo
 # This requires an ingress controller, to get this to work ensure your /etc/hosts file has an entry for your NodeIP
 # pointing to example.org
 
-
