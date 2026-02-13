@@ -9,4 +9,4 @@
 # 2. Patch the existing deployment busybox-logger in the priority namespace to use the newly created
 # high-priority class
 
-# Video Link - https://youtu.be/CZzxGyF6OHc
+

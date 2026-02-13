@@ -7,4 +7,4 @@
 # 3. Configure the HPA to have a minimum of 1 pod and a maximum of 4 pods
 # 4. Set the downscale stabilization window to 30 seconds
 
-# Video Link - https://youtu.be/YGkARVFKtmM
+

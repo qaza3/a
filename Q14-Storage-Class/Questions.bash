@@ -7,4 +7,4 @@
 # 3. Ensure local-storage is the only default class
 # Do not modify any existing Deployments or PersistentVolumeClaims
 
-# Video link - https://youtu.be/di7X7OHn2fc
+

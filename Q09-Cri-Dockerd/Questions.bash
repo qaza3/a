@@ -10,4 +10,4 @@
 # 3. Set net.ipv4.ip_forward to 1
 # 4. Set net.netfilter.nf_conntrack_max to 131072
 
-# Video Link - https://youtu.be/ybzo1vXiqjU
+
