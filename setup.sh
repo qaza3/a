@@ -19,7 +19,7 @@ for i in {01..18}; do
         # Map aliases directly to the discovered path
         alias q$idx="clear; cat \"$target/Questions.bash\""
         alias s$idx="\"$target/LabSetUp.bash\""
-        alias sol$idx="clear cat \"$target/SolutionNotes.bash\""
+        alias sol$idx="clear; cat \"$target/SolutionNotes.bash\""
         
         echo "Aliases created for $target"
     else
