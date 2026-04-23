@@ -2,15 +2,22 @@
 kubectl scale deployment wordpress --replicas 0
 
 # Step 2: edit deployment (set same resources on all init + main containers)
+k get deployment/wordpress.app -o yaml > q4.yaml
+
 kubectl edit deployment wordpress
-# In spec.template.spec.containers[] and spec.template.spec.initContainers[] set:
-# resources:
-#   requests:
-#     cpu: "300m"
-#     memory: "600Mi"
-#   limits:
-#     cpu: "400m"
-#     memory: "700Mi"
+
+# search kube doco for 'resource'
+
+# In spec
+
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "250m"
+      limits:
+        memory: "128Mi"
+        cpu: "300m"
+
 # (Values are just an example of dividing the node evenly and keeping some headroom;
 # ensure every container—init and main—uses the exact same requests/limits.)
 
