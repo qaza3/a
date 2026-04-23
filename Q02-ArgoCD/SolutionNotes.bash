@@ -10,3 +10,6 @@ cat /root/argo-helm.yaml   # confirm output
 
 #install
 k apply -f /root/argo-helm.yaml
+
+#install using helm
+helm install argocd argo/argo-cd --version 7.7.3 --set crds.install=false --namespace argocd
