@@ -9,7 +9,13 @@ kubectl edit deployment wordpress
 # search kube doco for 'resource'
 
 # In spec
-
+      containers:
+      - image: wordpress:6.2-apache
+        imagePullPolicy: IfNotPresent
+        name: wordpress
+        ports:
+        - containerPort: 80
+          protocol: TCP
         resources:
           requests:
             memory: "64Mi"
