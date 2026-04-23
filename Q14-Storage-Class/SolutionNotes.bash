@@ -1,3 +1,6 @@
+search doco for storageclase
+and Change the default StorageClass
+
 # Create StorageClass
 cat <<'EOF' > sc.yaml
 apiVersion: storage.k8s.io/v1
