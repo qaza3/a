@@ -15,7 +15,24 @@ second example is best 2/9
 
 ^^^ changes to output from pv
 
+save as q1.yaml
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mariadb
+  namespace: mariadb
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 250Mi
+  storageClassName: standard
+
 Apply
+k apply -f q1.yaml
 
 Check its bound
 k get pv -n mariadb -o wide
