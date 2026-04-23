@@ -10,13 +10,13 @@ kubectl edit deployment wordpress
 
 # In spec
 
-    resources:
-      requests:
-        memory: "64Mi"
-        cpu: "250m"
-      limits:
-        memory: "128Mi"
-        cpu: "300m"
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "300m"
 
 # (Values are just an example of dividing the node evenly and keeping some headroom;
 # ensure every container—init and main—uses the exact same requests/limits.)
