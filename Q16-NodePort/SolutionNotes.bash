@@ -1,10 +1,21 @@
 # Add container port to deployment
-kubectl patch deployment nodeport-deployment -n relative -p '{
-  "spec":{"template":{"spec":{"containers":[{
-    "name":"nginx",
-    "ports":[{"name":"http","containerPort":80,"protocol":"TCP"}]
-  }]}}}}'
-kubectl get deploy nodeport-deployment -n relative -o wide
+
+k get deployment nodeport-deployment -n relative -o yaml > q16.yaml
+
+      spec:
+        containers:
+        - image: nginx
+          imagePullPolicy: Always
+          name: nginx
+          ports:
+          - containerPort: 80
+            name: http
+            protocol: TCP
+          resources: {}
+          
+#need to do a replace
+
+k replace --force -a q16.yaml
 
 # Create NodePort service on 30080
 cat <<'EOF' > svc.yaml
@@ -23,6 +34,7 @@ spec:
     protocol: TCP
     nodePort: 30080
 EOF
+
 kubectl apply -f svc.yaml
 kubectl get svc nodeport-service -n relative -o wide
 # Test: curl http://<nodeIP>:30080
