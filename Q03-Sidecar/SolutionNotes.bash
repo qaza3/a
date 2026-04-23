@@ -1,5 +1,11 @@
-# Patch wordpress deployment to add shared volume + sidecar
-cat <<'EOF' | kubectl apply -f -
+# Get current deployment
+
+k get deployment
+
+k get deployment synergy-leverager -o yaml > q3.yaml
+
+# search kube doco for sidecar, it will show the volume mount
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -8,20 +14,25 @@ spec:
   template:
     spec:
       volumes:
-      - name: log
+      - name: data
         emptyDir: {}
       containers:
       - name: synergy-leverager
+        command: ["/bin/sh", "-c", "while true; do echo 'WordPress is running...' >> /var/log/synergy-leverager.log; sleep 5; done"]
         volumeMounts:
-        - name: log
+        - name: data
           mountPath: /var/log
       - name: sidecar
         image: busybox:stable
         command: ["/bin/sh","-c","tail -f /var/log/wordpress.log"]
         volumeMounts:
-        - name: log
+        - name: data
           mountPath: /var/log
-EOF
 
-kubectl rollout status deployment wordpress
-kubectl get pods -l app=wordpress
+# apply
+k apply -f q3.yaml
+
+#check 
+k get pods
+k logs <pod-name> 
+
