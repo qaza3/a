@@ -13,9 +13,9 @@ k get deployment nodeport-deployment -n relative -o yaml > q16.yaml
             protocol: TCP
           resources: {}
           
-#need to do a replace
+#this will get a warning, but will do it
 
-k replace --force -a q16.yaml
+k apply -f q16.yaml
 
 # Create NodePort service on 30080
 cat <<'EOF' > svc.yaml
